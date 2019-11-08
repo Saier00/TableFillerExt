@@ -39,11 +39,13 @@ Both methods return jQuery Object of table, so you can chain them:
 $("table").addThs("H1","H2","H3","H4").addTds("A1","A2","A3","A4");
 ```
 ![Imgur2](https://i.imgur.com/I4cN6jd.png)
+
 Use number before the one of headers in the addThs(...args) method to apply propety `colspan="{number}"` to it:
 ```js
 $("table").addThs("H1",2,"H2","H3").addTds("A1","A2","A3","A4");
 ```
 ![Imgur3](https://i.imgur.com/R1IFMCL.png)
+
 Use number in the addTds(...args) method to insert {number} empty tds:
 ```js
 $("table").addThs("H1","H2","H3","H4").addTds("A1",1,"A2",1).addTds(2,"A3","A4");
