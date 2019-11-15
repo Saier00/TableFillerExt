@@ -52,6 +52,11 @@ $("table").addThs("H1","H2","H3","H4").addTds("A1",1,"A2",1).addTds(2,"A3","A4")
 ```
 ![Imgur4](https://i.imgur.com/33czj00.png)
 
+If number of arguments of addTds less than number of ths in the first tr in a table, the last tr will be filled by empty tds:
+```js
+$("table").addThs("H1",3,"H2","H3").addTds("A4");
+```
+![Imgur5](https://i.imgur.com/XcxhsEU.png)
 ## NativeJS
 Include tableFillerExt.js or tableFillerExt.min.js:
 ```js
