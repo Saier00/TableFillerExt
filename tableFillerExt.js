@@ -29,6 +29,18 @@
 	//<return>this</return>
 	Object.defineProperty(Element.prototype, "addTds",{
 		    value: function(...args) {
+		    	let ths=Array.prototype.slice.call(this.firstChild.childNodes)
+		    	.map(function(el){
+		    		if(el.hasAttribute("colSpan"))
+		    			return el.colSpan;
+		    		return 1;
+		    	});
+
+		    	let thsLength=0;
+		    	for(let i of ths){
+		    		thsLength+=i;
+		    	}
+
 		    	let tr=document.createElement("tr");
 		    	for(let arg of args){
 					if(typeof arg =="number"){
@@ -42,6 +54,11 @@
 						td.innerHTML=arg;
 						tr.append(td);
 					}
+				}
+
+				for(let i=tr.childNodes.length;i<thsLength;i++){
+					let td=document.createElement("td");
+					tr.append(td);
 				}
 				this.append(tr);
 				return this;

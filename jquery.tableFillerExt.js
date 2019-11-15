@@ -27,6 +27,12 @@
 	//<return>this</return>
 	$.fn.extend({
 	    addTds: function(...args) {
+	    	let ths=this.find("tr").first().find("th");
+	    	let i=0;
+	    	ths.filter("[colspan]").each(function(ind,el){
+	    		i+=el.colSpan;
+	    	});
+	    	let thsLength=ths.not("[colspan]").length+i;
 	    	let tr=$("<tr></tr>");
 	    	for(let arg of args){
 				if(typeof arg =="number")
@@ -35,6 +41,8 @@
 				else
 					tr.append("<td>"+arg+"</td>");
 			}
+			for(let i=tr.find("td").length;i<thsLength;i++)
+				tr.append("<td></td>");
 			this.append(tr);
 			return this;
 	    }
