@@ -57,6 +57,12 @@ If number of arguments of addTds less than number of ths in the first tr in a ta
 $("table").addThs("H1",3,"H2","H3").addTds("A4");
 ```
 ![Imgur5](https://i.imgur.com/XcxhsEU.png)
+
+Also you can add tds after choosen tr in table:
+```js
+$("table").addThs("H1",3,"H2","H3").find("tr").last().addTdsAt("A1",1,"A2");
+```
+![Imgur5](https://i.imgur.com/WapT7f5.png)
 ## NativeJS
 Include tableFillerExt.js or tableFillerExt.min.js:
 ```js
